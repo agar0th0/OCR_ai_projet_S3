@@ -102,4 +102,6 @@ outil pour éviter des problèmes avec le C : valgrind  /   (option gcc) -fsanit
 
 
 
-
+fait(yassine):
+• Chargement d’une image ;
+• Suppression des couleurs (niveau de gris, puis noir et blanc) ;
