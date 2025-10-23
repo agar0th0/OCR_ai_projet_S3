@@ -6,6 +6,10 @@
 #include "stb_image_write.h"//pour sauvegarder une image
 
 
+// tu n'inclus pas stdio.h et stdlib bro 
+// tes malloc sont mal faits 
+
+
 int main(int argc, char **argv)
 {
 	

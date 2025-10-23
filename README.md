@@ -56,6 +56,16 @@ PREMIERE SOUTENANCE :
 
 
 • Chargement d’une image et suppression des couleurs ;
+AMINE DEBUT 20h40 -> 21h10
+
+besoin d'utiliser la librairie https://github.com/jtsiomb/libimago
+j'ai relu le code de yacine c'etait un code non test2 code de merde 
+reprise 18h00 24/10/2025 demain je finirai image processing j'ai juste a effectuer les appels de librairies 
+
+si vous lisez actuellement prenez une putain de tache.
+
+
+
 • Rotation manuelle de l’image ;
 • Détection de la position :
 ◦ De la grille ;
