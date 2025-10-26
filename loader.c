@@ -54,9 +54,9 @@ int main(int argc, char *argv[]) {
 			*pg = BLACK;
 		}
 
-		if (channels == 4) {
-			*(pg + 1) = *(p + 3);
-		}
+//		if (channels == 4) { // channel alpha unused for binarisation
+//			*(pg + 1) = *(p + 3);
+//		}
 	}
 
 	stbi_write_png("converted_black_and_white.png", width, height , gray_channels, gray_img, width * gray_channels);
