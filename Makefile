@@ -2,10 +2,13 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra
 
-TARGETS = solver neural_network loader 
+TARGETS = solver neural_network loader rotator
 # we will add rotator and detector
 
 all: $(TARGETS)
+
+rotator: rotator.o
+	$(CC) $(CFLAGS) -o $@ $^ -lm
 
 solver: solver.o
 	$(CC) $(CFLAGS) -o $@ $^ -lm
