@@ -46,10 +46,8 @@ int check(char* grid[], char* word, int i, int j, int i_diff, int j_diff, int n,
 
 int main(int argc, char* argv[]) {
 
-	int nb_args = argc - 1;
-
 	if (argc < 3 || argc > 3) {
-		printf("Error, we need to the following command\t:\n ./solver <filename_of_the_grid> <word_to_search> ");
+		printf("Error, we need the following command\t:\n ./solver <filename_of_the_grid> <word_to_search> ");
 		return EXIT_FAILURE;
 	}
 	// need to take the file and build a jagged array to have a grid to dive in 

@@ -1,0 +1,25 @@
+CC = gcc
+
+CFLAGS = -Wall -Wextra
+
+TARGETS = solver neural_network loader 
+# we will add rotator and detector
+
+all: $(TARGETS)
+
+solver: solver.o
+	$(CC) $(CFLAGS) -o $@ $^ -lm
+
+neural_network: neural_network.o
+	$(CC) $(CLFAGS) -o $@ $^ -lm
+
+loader: loader.o
+	$(CC) $(CFLAGS) -o $@ $^ -lm
+
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@ -lm
+
+clean:
+	rm -f *.o $(TARGETS)
+
+.PHONY: all clean

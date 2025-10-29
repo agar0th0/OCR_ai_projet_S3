@@ -12,6 +12,12 @@
 
 
 int main(int argc, char *argv[]) {
+
+	if (argc != 2) {
+		printf("Error, following format needed:\n./loader <filename_image.png>");
+		return EXIT_FAILURE;
+	}
+
 	int width, height, channels;
 	unsigned char *img = stbi_load(argv[1], &width, &height, &channels, 0);
 
