@@ -1,0 +1,18 @@
+
+For the usage of the loader to binarize the image:
+./loader <filename_image.png>
+
+For the usage of the rotator of th binarized image:
+./rotator <filename_image.png> <degrees_to_rotate>
+
+For the usage of the neural network:
+./neural_network
+
+For the usage of the solver:
+./solver <filename_of_the_grid> <word_to_search>
+
+
+For the detector, this program only work
+for the images of the level 1 and the level 2
+after being correctly rotated, this is not working 
+for the images of the level 3.
