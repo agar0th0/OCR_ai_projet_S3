@@ -75,7 +75,7 @@ struct form find_a_form(unsigned char *image, int x, int y, int width, int heigh
     output.end_point_y = yy;
 
     return output;
-}
+} // optimised O(n) a lot better 
 
 
 
@@ -198,10 +198,14 @@ int main(int argc, char* argv[]) {
 		else {
 			on_off = 1;
 		}
-	}
+	} don't work because the line aren't perfect and on each line or column of pixel 
+	this is never totally black
 */
 
-	int *row_sum = malloc((y_max - y_start) * sizeof(int));
+
+	int *row_sum = malloc((y_max - y_start) * sizeof(int)); 
+	// (y_max - y_start) because we work on the grid 
+	// like the length of of the side
 	for (int y = y_start; y < y_max; y++) {
 	    row_sum[y - y_start] = 0;
 	    for (int x = x_start; x < x_max; x++) {
@@ -211,6 +215,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	int *col_sum = malloc((x_max - x_start) * sizeof(int));
+	// same for the top
 	for (int x = x_start; x < x_max; x++) {
 	    col_sum[x - x_start] = 0;
 	    for (int y = y_start; y < y_max; y++) {
@@ -277,7 +282,7 @@ int main(int argc, char* argv[]) {
 				}
 			} // let's copy each pixel
 			char buffer[60];
-			sprintf(buffer, "letter_%i_%i.png",x ,y);
+			sprintf(buffer, "detection/letters_grid/letter_%i_%i.png",x ,y);
 			stbi_write_png(buffer, width_case, height_case, 1, img_case, width_case);
 			free(img_case);
 		}
