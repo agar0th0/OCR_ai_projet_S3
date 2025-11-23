@@ -16,3 +16,18 @@ For the detector, this program only work
 for the images of the level 1 and the level 2
 after being correctly rotated, this is not working 
 for the images of the level 3.
+
+
+
+
+For the next soutenance :
+- Le prétraitement complet (avec la rotation automatique) ;
+• Le réseau de neurones complet et fonctionnel
+◦ Apprentissage ;
+◦ Reconnaissance des lettres de la grille et de la liste de mots.
+• La reconstruction de la grille ;
+• La reconstruction de la liste de mots ;
+• La résolution de la grille ;
+• L’affichage de la grille ;
+• La sauvegarde du résultat ;
+• Une interface graphique permettant d’utiliser tous ces éléments
