@@ -14,6 +14,7 @@
 #define STB_IMAGE_WRITE_IMPLEMENTATION
 #include "imports/stb_image_write.h"
 
+#include "queue.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -111,97 +112,22 @@ void grid_to_letters_correct(char *filename){
 	int x_max = grid.end_point_x;
 	int y_max = grid.end_point_y;
 
-	// we have the grid now we search the number of rows 
-	// and the number of columns
+	// we have our range so we need to navigate in it and deduce each slot
 	
-	// first of all let's place ourselves on a white pixel 
-	int placement_x = 0;
-	int placement_y = 0;
-	
-	for (int y = y_start; y < y_max; y++) {
-		while (placement_x < width && img[y * width + placement_x] != 255) {
-			placement_x++;
-		}
-		if (placement_x >= width) {
-			continue;
-		}
-		if (img[y * width + placement_x] == 255) {
-			placement_y = y;
-			break;
-		}
-	}
 
-	int *row_sum = malloc((y_max - y_start) * sizeof(int)); 
-	for (int y = y_start; y < y_max; y++) {
-	    row_sum[y - y_start] = 0;
-	    for (int x = x_start; x < x_max; x++) {
-	        if (img[y * width + x] == 0)
-	            row_sum[y - y_start]++;
-	    }
-	}
-
-	int *col_sum = malloc((x_max - x_start) * sizeof(int));
-	for (int x = x_start; x < x_max; x++) {
-	    col_sum[x - x_start] = 0;
-	    for (int y = y_start; y < y_max; y++) {
-	        if (img[y * width + x] == 0)
-	            col_sum[x - x_start]++;
-	    }
-	}
 	
-	int nb_rows = 0;
-	int in_black = 0;
-	int row_threshold = (x_max - x_start) / 2; 
-	
-	for (int y = 0; y < y_max - y_start; y++) {
-	    if (row_sum[y] > row_threshold) {
-	        if (!in_black) {
-	            nb_rows++;
-	            in_black = 1;
-	        }
-	    } else {
-	        in_black = 0;
-	    }
-	}
-	
-	int nb_cols = 0;
-	in_black = 0;
-	int col_threshold = (y_max - y_start) / 2;
 
-	for (int x = 0; x < x_max - x_start; x++) {
-	    if (col_sum[x] > col_threshold) {
-	        if (!in_black) {
-       		     nb_cols++;
-    		     in_black = 1;
-		}
-	    } else {
-	        in_black = 0;
-	    }
-	}
-	
-	free(row_sum);
-	free(col_sum);
 
-	if (nb_rows == 0 || nb_cols == 0) {
-	    printf("Error: couldn't detect grid lines correctly.\n");
-	    stbi_image_free(img);
-	    return;
-	}
 
-	// now we can have the size of each case where we have each letter
-	
-	int width_case = (x_max - x_start) / nb_cols;
-	int height_case = (y_max - y_start) / nb_rows;
 
-	// now let's generate each image
+
+
+
 
 	mkdir("detection", 0777);
 	mkdir("detection/letters_grid", 0777);
 	
 	int actual_row = 1; 
-
-	int real_xmax = x_max + 1;
-	int real_ymax = y_max + 1;
 	
 	for (int y = y_start; y  + height_case < real_ymax; y += height_case) {
 		char dir[100];
