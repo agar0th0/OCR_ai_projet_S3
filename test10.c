@@ -423,7 +423,7 @@ int main() {
     init_network(&nn);
 
     printf("=== Reconnaissance de lettres (2600 photos) ===\n\n");
-    //train_with_images(&nn, "train", 350);
+    //train_with_images(&nn, "TRAINING", 350);
     //save_network(&nn, "final_model.weights");
 
     
