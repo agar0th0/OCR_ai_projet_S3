@@ -1,0 +1,3 @@
+il faut faire un reseau de neurones qui aura 784 entree soit les 28x28 pixels de l'image en entr2
+une fois cela fait ca sera simple la partie tricky du projet est de convertir une image en donn2es 
+detect -> coupe 28x28 -> Neural Network -> word and letters -> solve -> new image outputed with lines
